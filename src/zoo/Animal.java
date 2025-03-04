@@ -1,3 +1,5 @@
+package zoo;
+
 abstract class Animal {
     protected String nom;
     protected int age;

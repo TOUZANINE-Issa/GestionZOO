@@ -1,3 +1,5 @@
+package zoo;
+
 class Visiteur {
     private String nom;
     private int age;
