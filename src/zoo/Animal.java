@@ -1,4 +1,6 @@
-abstract class Animal {
+package zoo;
+
+public abstract class Animal {
     protected String nom;
     protected int age;
 

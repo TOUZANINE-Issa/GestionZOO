@@ -1,6 +1,14 @@
+package appli;
+
+import zoo.Animal;
+import zoo.Soigneur;
+import zoo.Visiteur;
+import zoo.Enclos;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 
 public class GestionZoo {
     private static Scanner scanner = new Scanner(System.in);

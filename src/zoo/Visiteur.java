@@ -1,4 +1,6 @@
-class Visiteur {
+package zoo;
+
+public class Visiteur {
     private String nom;
     private int age;
 

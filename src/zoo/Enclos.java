@@ -1,7 +1,9 @@
+package zoo;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class Enclos {
+public class Enclos {
     private String nom;
     private int capacite;
     private int proprete;

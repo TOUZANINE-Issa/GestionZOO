@@ -1,3 +1,5 @@
+package zoo;
+
 class Serpent extends Animal {
     public Serpent(String nom, int age) {
         super(nom, age);

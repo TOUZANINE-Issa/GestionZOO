@@ -1,4 +1,6 @@
-class Soigneur {
+package zoo;
+
+public class Soigneur {
     private String nom;
     private String specialite;
 
