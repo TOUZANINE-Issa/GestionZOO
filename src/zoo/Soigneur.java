@@ -3,6 +3,7 @@ package zoo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Soigneur {
@@ -17,9 +18,17 @@ public class Soigneur {
 
     public static void diagnostiquer() {
         boolean malade = Math.random() < 0.5;
-        System.out.println(" examine et trouve qu'il est " + (malade ? "malade" : "en bonne santé"));
+        System.out.println(" examine et trouve " + (malade ? "un des animaux est malade" : "les animaux sont bonne santé"));
         if (malade) {
-            System.out.println(" Soigneur soigne le malade ");
+            String Lion = "Lion";
+            String Serpent = "Serpent";
+            String Oiseau = "Oiseau";
+            String[] variant = {Lion, Serpent, Oiseau};
+            Random random = new Random();
+            int malades = random.nextInt(3);
+
+            System.out.println("l'animal malade est : " + variant[malades]);
+            System.out.println("Le Soigneur soigne "+variant[malades]);
         }
     }
 
