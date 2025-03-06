@@ -1,20 +1,38 @@
 package zoo;
 
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Soigneur {
     private String nom;
     private String specialite;
-
+    private static Scanner scanner = new Scanner(System.in);
+    private static List<Soigneur> soigneurs = new ArrayList<>();
     public Soigneur(String nom, String specialite) {
         this.nom = nom;
         this.specialite = specialite;
     }
 
-    public void diagnostiquer(Animal animal) {
+    public static void diagnostiquer() {
         boolean malade = Math.random() < 0.5;
-        System.out.println(nom + " examine " + animal.getNom() + " et trouve qu'il est " + (malade ? "malade" : "en bonne santé"));
+        System.out.println(" examine et trouve qu'il est " + (malade ? "malade" : "en bonne santé"));
+        if (malade) {
+            System.out.println(" Soigneur soigne le malade ");
+        }
     }
 
     public void soigner(Animal animal) {
         System.out.println(nom + " soigne " + animal.getNom());
+    }
+
+    public static void ajouterSoigneur() {
+        System.out.print("Nom du soigneur : ");
+        String nom = scanner.nextLine();
+        System.out.print("Spécialité (Lion/Oiseau/Serpent) : ");
+        String specialite = scanner.nextLine();
+        soigneurs.add(new Soigneur(nom, specialite));
+        System.out.println("Soigneur ajouté avec succès.");
     }
 }

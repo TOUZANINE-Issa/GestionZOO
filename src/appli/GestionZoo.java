@@ -3,20 +3,22 @@ package appli;
 
 import zoo.*;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 
+
+
 public class GestionZoo {
     private static Scanner scanner = new Scanner(System.in);
     private static List<Enclos> enclosList = new ArrayList<>();
-    private static List<Soigneur> soigneurs = new ArrayList<>();
     private static List<Visiteur> visiteurs = new ArrayList<>();
+
 
     public static void main(String[] args) {
         Enclos enclosLion = new Enclos("Savane", 3);
-        enclosList.add(enclosLion);
 
         boolean running = true;
         while (running) {
@@ -28,6 +30,7 @@ public class GestionZoo {
             System.out.println("5. Ajouter un visiteur");
             System.out.println("6. || - Spectacle Sonore - || ");
             System.out.println("7. || - Spectacle Visuel - || ");
+            System.out.println("8. Diagnostiqué les animaux");
             System.out.println("0. Quitter");
             System.out.print("Votre choix : ");
 
@@ -42,6 +45,7 @@ public class GestionZoo {
                 case 5 -> ajouterVisiteur();
                 case 6 -> spectacleSonore();
                 case 7 -> spectacleVisuel();
+                case 8 -> diagnostiquer();
                 case 0 -> {
                     running = false;
                     System.out.println("Fermeture du programme.");
@@ -54,59 +58,36 @@ public class GestionZoo {
         Lion.faireDuBruit1();
         Oiseau.faireDuBruit2();
         Serpent.faireDuBruit3();
+        Visiteur.interagir(visiteurs);
     }
+    private static void diagnostiquer(){
+        Soigneur.diagnostiquer();
+    }
+
     private static void spectacleVisuel(){
         Lion.seDeplacer1();
         Oiseau.seDeplacer2();
         Serpent.seDeplacer3();
+        Visiteur.interagir(visiteurs);
     }
 
     private static void nettoyerEnclos() {
-        System.out.println("Liste des enclos :");
-        for (int i = 0; i < enclosList.size(); i++) {
-            System.out.println((i + 1) + ". " + enclosList.get(i).getNom());
-        }
-        System.out.print("Sélectionnez l'enclos à nettoyer : ");
-        int choix = scanner.nextInt();
-        if (choix > 0 && choix <= enclosList.size()) {
-            enclosList.get(choix - 1).nettoyer();
-        } else {
-            System.out.println("Choix invalide.");
-        }
+       Enclos.nettoyerEnclos();
     }
 
     private static void ajouterSoigneur() {
-        System.out.print("Nom du soigneur : ");
-        String nom = scanner.nextLine();
-        System.out.print("Spécialité (Lion/Oiseau/Serpent) : ");
-        String specialite = scanner.nextLine();
-        soigneurs.add(new Soigneur(nom, specialite));
-        System.out.println("Soigneur ajouté avec succès.");
+        Soigneur.ajouterSoigneur();
     }
 
     private static void ajouterVisiteur() {
-        System.out.print("Nom du visiteur : ");
-        String nom = scanner.nextLine();
-        System.out.print("Âge du visiteur : ");
-        int age = scanner.nextInt();
-        visiteurs.add(new Visiteur(nom, age));
-        System.out.println("Visiteur ajouté avec succès.");
+        Visiteur.ajouterVisiteur();
     }
 
     private static void ajouterAnimal() {
-        System.out.print("Nom de l'animal : ");
-        String nom = scanner.nextLine();
-        System.out.print("Type (Lion/Oiseau/Serpent) : ");
-        String type = scanner.nextLine();
-        System.out.print("Âge de l'animal : ");
-        int age = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("L'animal a était ajouté avec succès.");
+        Enclos.ajouterAnimal();
     }
     private static void supprimerAnimal() {
-        System.out.print("Nom de l'animal à supprimer : ");
-        String nomAnimal = scanner.nextLine();
-        enclosList.get(0).supprimerAnimal(nomAnimal);
+        Animal.supprimerAnimal();
     }
 
 }
