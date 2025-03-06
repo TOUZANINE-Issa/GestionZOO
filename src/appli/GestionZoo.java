@@ -1,9 +1,7 @@
 package appli;
 
-import zoo.Animal;
-import zoo.Soigneur;
-import zoo.Visiteur;
-import zoo.Enclos;
+
+import zoo.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +26,9 @@ public class GestionZoo {
             System.out.println("3. Nettoyer un enclos");
             System.out.println("4. Ajouter un soigneur");
             System.out.println("5. Ajouter un visiteur");
-            System.out.println("6. Quitter");
+            System.out.println("6. || - Spectacle Sonore - || ");
+            System.out.println("7. || - Spectacle Visuel - || ");
+            System.out.println("0. Quitter");
             System.out.print("Votre choix : ");
 
             int choix = scanner.nextInt();
@@ -40,13 +40,25 @@ public class GestionZoo {
                 case 3 -> nettoyerEnclos();
                 case 4 -> ajouterSoigneur();
                 case 5 -> ajouterVisiteur();
-                case 6 -> {
+                case 6 -> spectacleSonore();
+                case 7 -> spectacleVisuel();
+                case 0 -> {
                     running = false;
                     System.out.println("Fermeture du programme.");
                 }
                 default -> System.out.println("Choix invalide.");
             }
         }
+    }
+    private static void spectacleSonore(){
+        Lion.faireDuBruit1();
+        Oiseau.faireDuBruit2();
+        Serpent.faireDuBruit3();
+    }
+    private static void spectacleVisuel(){
+        Lion.seDeplacer1();
+        Oiseau.seDeplacer2();
+        Serpent.seDeplacer3();
     }
 
     private static void nettoyerEnclos() {

@@ -1,7 +1,7 @@
 package zoo;
 
 public abstract class Animal {
-    protected String nom;
+    protected static String nom;
     protected int age;
 
     public Animal(String nom, int age) {
@@ -9,7 +9,9 @@ public abstract class Animal {
         this.age = age;
     }
 
-    public abstract void faireDuBruit();
+    public static void faireDuBruit() {
+    }
+
     public abstract void seDeplacer();
 
     public String getNom() {

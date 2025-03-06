@@ -1,17 +1,21 @@
 package zoo;
 
-class Serpent extends Animal {
+public class Serpent extends Animal {
     public Serpent(String nom, int age) {
         super(nom, age);
     }
 
     @Override
-    public void faireDuBruit() {
+    public void seDeplacer() {
+
+    }
+
+    public static void faireDuBruit3() {
         System.out.println(nom + " siffle !");
     }
 
-    @Override
-    public void seDeplacer() {
+
+    public static void seDeplacer3() {
         System.out.println(nom + " rampe silencieusement.");
     }
 }
